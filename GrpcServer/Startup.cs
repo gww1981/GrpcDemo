@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GrpcServer.Interceptors;
 using GrpcServer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,8 +20,11 @@ namespace GrpcServer
         {
             services.AddGrpc(options =>
             {
-                options.EnableDetailedErrors = false;
+                options.EnableDetailedErrors = true;
+                options.Interceptors.Add<ExceptionInterceptor>();
+
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

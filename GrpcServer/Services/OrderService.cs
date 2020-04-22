@@ -19,6 +19,9 @@ namespace GrpcServer.Services
         public override Task<CreateOrderReply> CreateOrder(CreateOrderRequest request, ServerCallContext context)
         {
             _logger.LogInformation("Create order by {BuyId}...", request.BuyId);
+
+            throw new Exception("报错啦。。。");
+
             return Task.FromResult(new CreateOrderReply{ OrderId=24});
         }
     }
