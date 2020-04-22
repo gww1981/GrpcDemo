@@ -1,0 +1,25 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package GrpcServices;
+
+// The greeting service definition.
+service OrderGrpc {
+	// Sends a greeting
+	rpc CreateOrder (CreateOrderRequest) returns (CreateOrderReply);
+}
+
+// The request message containing the user's name.
+message CreateOrderRequest {
+	string buyId = 1;	
+	int32 productId=2;
+	double unitPrice=3;
+	double discount=4;
+	int32 units=5;
+}
+
+// The response message containing the greetings.
+message CreateOrderReply {
+     int32 orderId =1;
+}
